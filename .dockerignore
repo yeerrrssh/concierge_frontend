@@ -1,0 +1,9 @@
+node_modules
+dist
+Dockerfile
+.gitignore
+.eslintrc.json
+.prettierrc
+.huskyrc
+.lintstagedrc
+.env

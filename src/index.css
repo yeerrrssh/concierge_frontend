@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  html,
+  body {
+    @apply bg-surface-100;
+  }
+  * {
+    @apply p-0 m-0;
+  }
+  button {
+    @apply border-0 cursor-pointer bg-transparent;
+  }
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
