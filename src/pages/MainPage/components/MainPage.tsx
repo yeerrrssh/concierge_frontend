@@ -2,10 +2,14 @@ import { Camera } from '../../../components/Camera/components/Camera.tsx';
 import { useCamerasQuery } from '../../../queries/camera';
 
 export const MainPage = () => {
-  const { data: cameras } = useCamerasQuery();
+  const { data: cameras = [], isPending } = useCamerasQuery();
 
-  if (!cameras) {
+  if (isPending) {
     return <div>Загрузка...</div>;
+  }
+
+  if (cameras.length === 0) {
+    return <div>Камеры не обнаружены</div>;
   }
 
   return (
