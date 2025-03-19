@@ -5,10 +5,7 @@ WORKDIR /app
 COPY package.json  package-lock.json ./
 RUN npm install
 
-COPY ./src ./src
-COPY tsconfig.json tsconfig.json
-COPY tsconfig.app.json tsconfig.app.json
-COPY tsconfig.node.json tsconfig.node.json
+COPY . .
 
 ARG BACKEND_URL_1
 ENV BACKEND_URL_1=$BACKEND_URL_1
