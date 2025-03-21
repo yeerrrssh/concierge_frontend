@@ -3,7 +3,7 @@ import { CancelledRequestError, HttpError } from './errors.ts';
 
 
 const BACKEND_URL_1 = 'http://89.105.137.28:8011';
-const BACKEND_URL_2 = 'http://89.105.137.28:8001/api';
+const BACKEND_URL_2 = 'http://89.105.137.28:8010/api';
 
 export const axiosInstance1 = axios.create({
   withCredentials: true,
