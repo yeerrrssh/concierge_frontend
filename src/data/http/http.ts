@@ -2,14 +2,17 @@ import axios, { AxiosError, InternalAxiosRequestConfig } from 'axios';
 import { CancelledRequestError, HttpError } from './errors.ts';
 
 
+const BACKEND_URL_1 = 'http://89.105.137.28:8011';
+const BACKEND_URL_2 = 'http://89.105.137.28:8001/api';
+
 export const axiosInstance1 = axios.create({
   withCredentials: true,
-  baseURL: import.meta.env.VITE_BACKEND_URL_1,
+  baseURL: BACKEND_URL_1,
 });
 
 export const axiosInstance2 = axios.create({
   withCredentials: true,
-  baseURL: import.meta.env.VITE_BACKEND_URL_2,
+  baseURL: BACKEND_URL_2,
 });
 
 type RetriableAxiosError<T = unknown, D = unknown> = AxiosError<T, D> & {
