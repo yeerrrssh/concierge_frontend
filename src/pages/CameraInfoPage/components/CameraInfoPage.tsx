@@ -19,6 +19,7 @@ import { useCameraEventsQuery } from '../../../queries/camera';
 import { areArraysEqual } from '../../../utils/array';
 
 export const CameraInfoPage = () => {
+  const [currentVideoIndex, setCurrentVideoIndex] = useState<number>(0);
   const [currentVideoLink, setCurrentVideoLink] = useState('');
   const [dateRange, setDateRange] = useState<(string | null)[]>([
     LOCAL_TODAY_START,
@@ -53,6 +54,7 @@ export const CameraInfoPage = () => {
   useEffect(() => {
     if (videos?.videos?.[0]) {
       setCurrentVideoLink(videos.videos[0].link);
+      setCurrentVideoIndex(0);
     }
   }, [videos]);
 
@@ -72,6 +74,13 @@ export const CameraInfoPage = () => {
         break;
     }
   }, []);
+
+  const selectNextVideo = () => {
+    if (videos && currentVideoIndex < videos?.videos.length - 1) {
+      setCurrentVideoLink(videos.videos[currentVideoIndex + 1].link);
+      setCurrentVideoIndex(currentVideoIndex + 1);
+    }
+  };
 
   useEffect(() => {
     if (
@@ -134,12 +143,13 @@ export const CameraInfoPage = () => {
         </div>
       </div>
       <div className="flex flex-row gap-6">
-        <Video link={currentVideoLink} />
+        <Video link={currentVideoLink} selectNextVideo={selectNextVideo} />
         <InfoTable
           videos={videos.videos}
           events={events}
-          selectedVideo={currentVideoLink}
-          selectVideo={setCurrentVideoLink}
+          selectedVideoUrl={currentVideoLink}
+          selectVideoUrl={setCurrentVideoLink}
+          selectVideoIndex={setCurrentVideoIndex}
         />
       </div>
     </div>
