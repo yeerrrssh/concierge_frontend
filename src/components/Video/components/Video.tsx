@@ -5,7 +5,6 @@ type VideoProps = {
 
 export const Video = ({ link, selectNextVideo }: VideoProps) => {
   const handleVideoEnd = () => {
-    console.log(link);
     selectNextVideo();
   };
 

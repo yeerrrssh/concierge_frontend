@@ -76,9 +76,9 @@ export const CameraInfoPage = () => {
   }, []);
 
   const selectNextVideo = () => {
-    if (videos && currentVideoIndex < videos?.videos.length - 1) {
-      setCurrentVideoLink(videos.videos[currentVideoIndex + 1].link);
-      setCurrentVideoIndex(currentVideoIndex + 1);
+    if (videos && currentVideoIndex > 0) {
+      setCurrentVideoLink(videos.videos[currentVideoIndex - 1].link);
+      setCurrentVideoIndex(currentVideoIndex - 1);
     }
   };
 
