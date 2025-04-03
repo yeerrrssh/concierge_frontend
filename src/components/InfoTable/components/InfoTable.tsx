@@ -40,7 +40,12 @@ export const InfoTable = ({
             </div>
             <div className="flex flex-col">
               <span>
-                {events.find((event) => event.video_id === video.id)?.name}
+                {
+                  events
+                    .filter((event) => event.video_id === video.id)
+                    .map((event) => event.name)
+                    .join(', ')
+                }
               </span>
             </div>
           </button>
