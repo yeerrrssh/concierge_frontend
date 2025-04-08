@@ -21,11 +21,8 @@ import { areArraysEqual } from '../../../utils/array';
 export const CameraInfoPage = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState<number>(0);
   const [currentVideoLink, setCurrentVideoLink] = useState('');
-  const [dateRange, setDateRange] = useState<(string | null)[]>([
-    LOCAL_TODAY_START,
-    LOCAL_TODAY_END,
-  ]);
-  const [toggle, setToggle] = useState<tabs | undefined>(tabs.todayTab);
+  const [dateRange, setDateRange] = useState<(string | null)[]>([null, null]);
+  const [toggle, setToggle] = useState<tabs | undefined>(undefined);
 
   const navigate = useNavigate();
   const { pathname } = useLocation();

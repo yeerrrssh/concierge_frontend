@@ -62,8 +62,8 @@ export const MainPage = () => {
   );
 
   return (
-      <div className="pt-20 pl-8 pb-9">
-        <div className="flex flex-row items-center gap-4 mb-5">
+      <div className="relative w-full h-full">
+        <div className="absolute top-10 left-12 z-50 flex flex-row items-center gap-4 mb-5">
           <Tab
             changeToggle={() => setCamerasViewMode('map')}
             title="Карта"
@@ -76,9 +76,9 @@ export const MainPage = () => {
           />
         </div>
         {camerasViewMode === 'list' ? (
-          <div className="grid grid-cols-3 gap-x-10 gap-y-8">
-            {camerasDemo.map((camera) => (
-              <Camera key={camera.id} camera={camera}/>
+          <div className="grid grid-cols-3 gap-x-6 gap-y-8 pt-28 pl-12 pb-9">
+            {camerasDemo.map((camera, index) => (
+              <Camera key={camera.id} camera={camera} isFirst={index === 0} />
             ))}
           </div>
         ) : (
