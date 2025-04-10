@@ -78,7 +78,6 @@ export const Map = () => {
                 height: '100vh',
                 width: '100vw',
             }}
-            key={crypto.randomUUID()}
         >
             <MapContainer
                 center={center}
